@@ -3,8 +3,43 @@ Functional Data Analysis of hydrographic profiles for python (fda_oce_python)
 
 **Functional Data Analysis** is a set of tools to study curves or functions. Here we see vertical hydrographic profiles of several variables (temperature, salinity, oxygen,...) as curves and apply a functional principal component analysis (FPCA) in the multivaraite case to reduce the dimensionality of the system. The classical case is done with couples of temperature and salinity. It can be used for front detection, water mass identification, unsupervised or supervised classification, model comparison, data calibration ...
 
+**Installation of fda.oce using Anaconda:
+
+If you have installed Anaconda, you can install fda_oce_python in a new environment *fda_env* by executing in your terminal the commands:
+``` r
+conda create -n fda_env --yes
+conda activate fda_env
+conda install python=3.6 --yes
+conda install -c r r-devtools rpy2 r-fda --yes
+conda install -c conda-forge jupyterlab --yes
+conda install -c conda-forge numpy --yes
+conda install -c conda-forge scipy --yes
+conda install -c conda-forge matplotlib --yes
+```
+Note that we use python 3.6 because at this date, the R module fda is not compatible with later versions of python.
+
+Before opening jupyter lab (or jupyter notebook), make sure you select the right conda environment. This can be done from the Anaconda graphical interface, or using the command line:
+``` r
+conda activate fda_env
+```
+
+Download the github folder fda_oce_python, move there in your terminal and open jupyter lab:
+``` r
+conda activate fda_env
+jupyter lab
+```
+
+You should now be able to execute the code in the fda_oce_python.ipynb file. Note that you may have to modify the variable *os.environ['R_HOME']* defined below in order to access R from python.
+
 See the Jupyter notebook : https://github.com/EPauthenet/fda_oce_python/blob/master/fda_oce_python.ipynb
-This version in Python is using the R package [fda.oce](https://github.com/EPauthenet/fda.oce).
+
+**Installation of fda.oce using an existing R install** If you have an installation of R obtained differently, you may install devtools by executing in R the command:
+``` r
+install.packages("devtools")
+install.packages("fda")
+```
+You should then set the python variable *os.environ['R_HOME']* using the path to the home of R, in order to access R from python.
+
 
 *Author*:
 Fabien Roquet (fabien.roquet@gu.se)
