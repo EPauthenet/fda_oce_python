@@ -8,6 +8,7 @@ This version in Python is using the R package [fda.oce](https://github.com/EPaut
 
 *Author*:
 Fabien Roquet (fabien.roquet@gu.se)
+Etienne Pauthenet (etienne.pauthenet@locean-ipsl.upmc.fr)
 
 *References*: 
 - Pauthenet et al. (2019) The thermohaline modes of the global ocean. Journal of Physical Oceanography, [10.1175/JPO-D-19-0120.1](https://doi.org/10.1175/JPO-D-19-0120.1)
