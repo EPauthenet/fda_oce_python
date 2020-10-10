@@ -8,11 +8,16 @@ Created on Tue Aug  6 11:22:16 2019
 
 import numpy as np
 
+import os
+os.environ['R_HOME'] = '/opt/tljh/user/lib/R'
+os.environ['R_USER'] = '/opt/tljh/user/lib/python3.7/site-packages/rpy2'
+
 #%% project profiles on a Bspline basis (use R-package fda)
 from rpy2.robjects.packages import importr
 from rpy2.robjects import FloatVector,StrVector
 from rpy2.robjects.conversion import localconverter
 from rpy2.robjects import numpy2ri
+
 fda = importr('fda')
 base = importr('base')
 
@@ -27,10 +32,9 @@ def create_basis(pmin,pmax,nbas=20):
 
 
 def bspl(Pi,Xi,nbas=20,fdn = ['Temperature','Salinity']):
-    print("Converting the profiles into B-splines...")
     basis = create_basis(Pi[0],Pi[-1],nbas)
     with localconverter(numpy2ri.converter) as cv:
-        Xi_R = cv.py2ro(Xi) # convert from *py*thon to *ro*bjects
+        Xi_R = cv.py2rpy(Xi)
     fdobj = fda.Data2fd(argvals = FloatVector(Pi),y = Xi_R,basisobj = basis,fdnames = StrVector(['Level','Station']+fdn))
     size = np.array(fdobj[0]).shape
     print("{0} B-splines computed for {1} variables.".format(size[1],size[2]))
@@ -174,7 +178,7 @@ def fdobj_from_pc(pca,pc,ntrunc=0):
             pca['vectors'][kk*nbas:(kk+1)*nbas,:ntrunc] @ pc[:,:ntrunc].T
         
     with localconverter(numpy2ri.converter) as cv:
-        coef_R = cv.py2ro(coef) # convert from *py*thon to *ro*bjects
+        coef_R = cv.py2rpy(coef) # convert from *py*thon to *ro*bjects
     fdobj = fda.fd(coef_R,pca['basis'],StrVector(pca['fdnames']))
     
     return fdobj
