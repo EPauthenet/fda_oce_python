@@ -1,7 +1,7 @@
 # fda_oce_python
 Functional Data Analysis of hydrographic profiles for python (fda_oce_python)
 
-**Functional Data Analysis** is a set of tools to study curves or functions. Here we see vertical hydrographic profiles of several variables (temperature, salinity, oxygen,...) as curves and apply a functional principal component analysis (FPCA) in the multivaraite case to reduce the dimensionality of the system. The classical case is done with couples of temperature and salinity. It can be used for front detection, water mass identification, unsupervised or supervised classification, model comparison, data calibration ...
+**Functional Data Analysis** is a set of tools to study curves or functions. Here we see vertical hydrographic profiles of several variables (temperature, salinity, oxygen,...) as curves and apply a functional principal component analysis (FPCA) in the multivaraite case to reduce the dimensionality of the system. The classical case is done with couples of temperature and salinity. It can be used for front detection, water mass identification, unsupervised or supervised classification, model comparison, data calibration ... This toolbox is also available in [Matlab](https://github.com/EPauthenet/fda.oceM) and [R](https://github.com/EPauthenet/fda.oce) with a doi [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4073123.svg)](https://doi.org/10.5281/zenodo.4073123)
 
 **Installation of fda.oce using Anaconda:
 
